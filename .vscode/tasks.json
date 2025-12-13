@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Kotlin: Compile",
+      "type": "shell",
+      "command": "docker compose exec kotlin kotlinc main.kt -include-runtime -d main.jar",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Kotlin: Run",
+      "type": "shell",
+      "command": "docker compose exec kotlin java -jar main.jar",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Kotlin: Compile & Run",
+      "type": "shell",
+      "command": "docker compose exec kotlin sh -c \"kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar\"",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
